@@ -16,21 +16,20 @@
         "build:personal:zip-flat": "node scripts/build-personal.mjs --out personal-build --zip --zip-flat --clean",
         "preview": "vite preview"
     },
-    "devDependencies": {
-        "@alpinejs/collapse": "^3.13.5",
-        "@tailwindcss/forms": "^0.5.7",
-        "@tailwindcss/typography": "^0.5.10",
-        "alpinejs": "^3.13.3",
-        "axios": "^1.6.2"
-    },
+    "devDependencies": {},
     "dependencies": {
+        "@alpinejs/collapse": "^3.13.5",
         "@coltorapps/builder": "^0.2.4",
         "@coltorapps/builder-react": "^0.2.4",
         "@dagrejs/dagre": "^1.1.8",
         "@heroicons/vue": "^2.1.1",
         "@hotwired/turbo": "^8.0.13",
+        "@tailwindcss/forms": "^0.5.7",
+        "@tailwindcss/typography": "^0.5.10",
         "@vitejs/plugin-react": "^4.7.0",
+        "alpinejs": "^3.13.3",
         "autoprefixer": "^10.4.16",
+        "axios": "^1.6.2",
         "grapesjs": "^0.21.7",
         "grapesjs-preset-newsletter": "^1.0.2",
         "laravel-vite-plugin": "^1.3.0",
