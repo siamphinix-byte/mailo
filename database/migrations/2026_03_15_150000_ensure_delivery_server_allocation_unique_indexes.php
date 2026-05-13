@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -53,12 +52,11 @@ return new class extends Migration
     private function indexExists(string $table, string $indexName): bool
     {
         try {
-            return DB::table('information_schema.statistics')
-                ->where('table_schema', DB::getDatabaseName())
-                ->where('table_name', $table)
-                ->where('index_name', $indexName)
-                ->exists();
+            $schemaManager = Schema::getConnection()->getDoctrineSchemaManager();
+            $indexes = $schemaManager->listTableIndexes($table);
+            return array_key_exists($indexName, $indexes);
         } catch (\Throwable) {
+            // Fallback for environments where Doctrine is not available
             return false;
         }
     }
